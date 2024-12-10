@@ -1,12 +1,13 @@
+import {Fortress, FortressRecord} from '../../types/types';
+
 import EncryptedStorage from 'react-native-encrypted-storage';
+const CryptoStore = EncryptedStorage;
 
-interface Data {
-  name: String;
-}
-
-export const writeCS = (): Promise<string> => {
-  const forte: Data = {name: 'Andres'};
-  return EncryptedStorage.setItem('Forte', JSON.stringify(forte))
-    .then(() => 'ready')
+export const writeCS = (
+  identifier: string,
+  newData: Fortress | FortressRecord,
+): Promise<string> => {
+  return CryptoStore.setItem(identifier, JSON.stringify(newData))
+    .then(() => 'Ready')
     .catch((error: Error) => `Fail to save: ${error.message}`);
 };
