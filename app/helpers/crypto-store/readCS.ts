@@ -1,17 +1,16 @@
+import {FortressRecord} from '../../types/types';
+
 import EncryptedStorage from 'react-native-encrypted-storage';
+const CryptoStore = EncryptedStorage;
 
-interface Data {
-  name: String;
-}
-
-export const readCS = (): Promise<Data | null> => {
-  return EncryptedStorage.getItem('Forte')
-    .then(result => {
-      if (result) return JSON.parse(result) as Data;
-      return null;
+export const readCS = (identifier: string): Promise<FortressRecord> => {
+  return CryptoStore.getItem(identifier)
+    .then(item => {
+      if (item) return JSON.parse(item) as FortressRecord;
+      return [];
     })
     .catch((error: Error) => {
       console.error(`Fail to load: ${error.message}`);
-      return null;
+      return [];
     });
 };

@@ -1,7 +1,8 @@
 import EncryptedStorage from 'react-native-encrypted-storage';
+const CryptoStore = EncryptedStorage;
 
 export const delCS = (): Promise<void> => {
-  return EncryptedStorage.removeItem('Forte')
+  return CryptoStore.removeItem('Forte')
     .then(() => console.log('removed'))
     .catch((error: Error) => console.error(`Fail to remove: ${error.message}`));
 };
