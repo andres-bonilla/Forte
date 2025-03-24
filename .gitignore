@@ -1,12 +1,47 @@
 #customs
-__tests__/
-.bundle/
-android/
-ios/
-Gemfile
-jest.config.js
-.prettierrc.js
-.eslintrc.js
+.bundle/*
+!.bundle/config
+config/babel.config.jsme
+
+# Temporary files
+temp/
+tmp/
+
+# Environment files
+.env
+.env.*
+
+# Watchman
+.watchmanconfig
+
+# Metro bundler cache
+.expo/
+.expo-shared/
+metro-cache/
+react-native-packager-cache-*/
+
+# Android
+android/.gradle/
+android/app/build/
+android/build/
+android/local.properties
+android/.idea
+android/.cxx/
+android/.settings/
+*.keystore
+
+# iOS
+ios/Pods/
+ios/Podfile.lock
+ios/build/
+ios/DerivedData/
+ios/.symlinks/
+ios/.xcode.env.local
+ios/.xcode.env
+*.xcworkspace
+*.xcuserdata
+*.xcodeproj/project.xcworkspace/
+*.xcodeproj/xcuserdata/
 
 ################################################################
 # OSX
